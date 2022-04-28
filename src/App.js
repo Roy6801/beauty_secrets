@@ -1,25 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Home from "./components/Pages/HomePage/Home";
+import Contact from "./components/Pages/ContactPage/Contact";
+import Services from "./components/Pages/ServicesPage/Services";
+import Navbar from "./components/Navbar/Navbar";
+import { Box } from "@mui/material";
 
-function App() {
+const App = () => {
+  const ErrorPage = () => {
+    window.location.href = "/";
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Box
+      sx={{
+        p: { xs: 0.1, sm: 0.5, md: 1, lg: 2 },
+        backgroundColor: "yellow",
+        display: "flex",
+        flexDirection: "column",
+        minHeight: "100vh",
+      }}
+    >
+      <Router>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/services" element={<Services />} />
+          <Route path="*" element={<ErrorPage />} />
+        </Routes>
+      </Router>
+    </Box>
   );
-}
+};
 
 export default App;
