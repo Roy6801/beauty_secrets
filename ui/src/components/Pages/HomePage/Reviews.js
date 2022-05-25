@@ -26,11 +26,13 @@ const responsive = {
 
 const Reviews = () => {
   const [reviews, setReviews] = useState();
-  const { REACT_APP_REVIEW_API } = process.env;
+  const { REACT_APP_REVIEW_API, REACT_APP_API_KEY } = process.env;
   const storageKey = "beautysecrets3110reviews";
 
+  const API_ENDPOINT = `${REACT_APP_REVIEW_API}/${REACT_APP_API_KEY}`
+
   const APICall = () => {
-    axios.get(REACT_APP_REVIEW_API).then((res) => {
+    axios.get(API_ENDPOINT).then((res) => {
       window.localStorage.setItem(
         storageKey,
         JSON.stringify([res.data, Math.round(new Date().getTime() / 1000)])
