@@ -6,10 +6,14 @@ import {
   Typography,
   Rating,
 } from "@mui/material";
+import homeStyle from "../../../styles/homeStyle";
+import "../../../index.css";
+
+const { reviewCard } = homeStyle.reviewPanel;
 
 const ReviewCard = ({ profileURL, userName, userReview, userRating }) => {
   return (
-    <Card sx={{ m: 0.5, py: 1, height: 320 }}>
+    <Card sx={reviewCard.card}>
       <CardHeader
         sx={{
           height: 100,
@@ -27,7 +31,7 @@ const ReviewCard = ({ profileURL, userName, userReview, userRating }) => {
           </CardContent>
         }
       />
-      <CardContent sx={{ height: 100, overflowY: "auto" }}>
+      <CardContent sx={{ height: 100, mx: 2 }} className="scrollbar">
         <Typography variant="body2" textAlign="justify">
           {userReview}
         </Typography>

@@ -1,32 +1,24 @@
 import Reviews from "./Reviews";
 import InstaPosts from "./InstaPosts";
 import cover from "../../../static/beautysecrets.jpg";
-import { Container, Card, CardMedia, Box } from "@mui/material";
+import { Typography, Card, CardMedia, Box } from "@mui/material";
+import homeStyle from "../../../styles/homeStyle";
+import "../../../index.css";
+
+const { homeContainer, titleCard } = homeStyle;
 
 const Home = () => {
   return (
-    <Box
-      sx={{
-        my: { xs: 7.5, sm: 8 },
-        p: { xs: 1, sm: 2, md: 3, lg: 4 },
-        backgroundColor: "black",
-      }}
-    >
-      <Card>
-        <CardMedia
-          component="img"
-          src={cover}
-          sx={{
-            objectFit: "cover",
-            maxHeight: { xs: 220, md: 380, lg: 512 },
-            minHeight: { sm: 420 },
-          }}
-        />
+    <Box sx={homeContainer} >
+      <Card sx={titleCard.container}>
+        <CardMedia component="img" src={cover} sx={titleCard.image} />
+        <div style={titleCard.centered}>
+          <Typography sx={titleCard.title}>Beauty Secrets</Typography>
+          <Typography sx={titleCard.subTitle}>Family Salon</Typography>
+        </div>
       </Card>
-      <Container>
-        <InstaPosts />
-        <Reviews />
-      </Container>
+      <InstaPosts />
+      <Reviews />
     </Box>
   );
 };

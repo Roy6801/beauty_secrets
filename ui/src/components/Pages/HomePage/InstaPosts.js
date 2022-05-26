@@ -1,7 +1,28 @@
 import { useState, useEffect } from "react";
-import axios from "axios";
-import { ImageList, ImageListItem } from "@mui/material";
+import { Box, ImageList, ImageListItem, Typography } from "@mui/material";
 import { Carousel } from "react-bootstrap";
+import axios from "axios";
+import homeStyle from "../../../styles/homeStyle.js";
+import insta from "../../../static/insta.svg";
+
+const { instaPanel } = homeStyle;
+const breakpoints = {
+  xs: 0,
+  sm: 600,
+  md: 960,
+  lg: 1280,
+  xl: 1920,
+};
+
+const getColumns = (width) => {
+  if (width < breakpoints.sm) {
+    return 2;
+  } else if (width < breakpoints.md) {
+    return 3;
+  } else if (width < breakpoints.xl) {
+    return 4;
+  }
+};
 
 const InstaPosts = () => {
   const { REACT_APP_INSTA_TOKEN } = process.env;
@@ -9,6 +30,12 @@ const InstaPosts = () => {
   const [posts, setPosts] = useState();
 
   const [limit, setLimit] = useState(20);
+
+  const [columns, setColumns] = useState(getColumns(window.innerWidth));
+
+  const updateDimensions = () => {
+    setColumns(getColumns(window.innerWidth));
+  };
 
   const storageKey = "beautysecrets3110posts";
 
@@ -47,6 +74,11 @@ const InstaPosts = () => {
   };
 
   useEffect(() => {
+    window.addEventListener("resize", updateDimensions);
+    return () => window.removeEventListener("resize", updateDimensions);
+  }, []);
+
+  useEffect(() => {
     let item = window.localStorage.getItem(storageKey);
     if (item) {
       let post_time = JSON.parse(item);
@@ -66,25 +98,32 @@ const InstaPosts = () => {
   if (!posts) return null;
 
   return (
-    <ImageList
-      variant="masonry"
-      cols={4}
-      sx={{ backgroundColor: "red", m: 2, p: 2 }}
-    >
-      {posts.map((post, index) => (
-        <ImageListItem key={index}>
-          <Carousel>
-            {post.map((media) => {
-              return (
-                <Carousel.Item key={media}>
-                  <img src={media} style={{ width: "100%" }} />
-                </Carousel.Item>
-              );
-            })}
-          </Carousel>
-        </ImageListItem>
-      ))}
-    </ImageList>
+    <Box sx={instaPanel.container}>
+      <Box sx={instaPanel.titleCard}>
+        <a href="https://instagram.com/beautysecrets3110/" target="_blank">
+          <div style={{ display: "flex", alignItems: "center" }}>
+            <img src={insta} width="48px" />
+            <Typography sx={instaPanel.title}>@beautysecrets3110</Typography>
+          </div>
+        </a>
+      </Box>
+
+      <ImageList variant="masonry" cols={columns} sx={instaPanel.imageList}>
+        {posts.map((post, index) => (
+          <ImageListItem key={index}>
+            <Carousel>
+              {post.map((media) => {
+                return (
+                  <Carousel.Item key={media}>
+                    <img src={media} style={{ width: "100%" }} />
+                  </Carousel.Item>
+                );
+              })}
+            </Carousel>
+          </ImageListItem>
+        ))}
+      </ImageList>
+    </Box>
   );
 };
 

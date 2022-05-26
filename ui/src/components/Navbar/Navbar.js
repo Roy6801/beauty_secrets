@@ -27,17 +27,21 @@ const Navbar = () => {
   };
 
   return (
-    <AppBar position="fixed">
-      <Container maxWidth="xl">
+    <AppBar position="fixed" color="default">
+      <Container>
         <Toolbar disableGutters>
           <Typography
             noWrap
             component="div"
-            fontFamily="Dancing Script"
-            fontSize={24}
-            sx={{ mr: 2, display: { xs: "none", md: "flex" } }}
+            fontFamily="Smooch"
+            fontSize={32}
+            sx={{
+              mr: 2,
+              fontSize: { md: "28px", lg: "32px" },
+              display: { xs: "none", md: "flex" },
+            }}
             onClick={(e) => {
-              navigate("/");
+              navigate("/home");
             }}
           >
             Beauty Secrets
@@ -46,11 +50,15 @@ const Navbar = () => {
           <Typography
             noWrap
             component="div"
-            fontFamily="Dancing Script"
+            fontFamily="Smooch"
             fontSize={18}
-            sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}
+            sx={{
+              flexGrow: 1,
+              fontSize: { xs: "24px" },
+              display: { xs: "flex", md: "none" },
+            }}
             onClick={(e) => {
-              navigate("/");
+              navigate("/home");
             }}
           >
             Beauty Secrets
@@ -64,7 +72,6 @@ const Navbar = () => {
           >
             <IconButton
               size="large"
-              aria-label="account of current user"
               aria-controls="menu-appbar"
               aria-haspopup="true"
               onClick={handleOpenNavMenu}
@@ -96,7 +103,9 @@ const Navbar = () => {
                     onClick={(e) => {
                       navigate(`/${page.toLowerCase()}`);
                     }}
+                    fontWeight="bold"
                     textAlign="center"
+                    color="primary"
                   >
                     {page}
                   </Typography>
@@ -125,6 +134,8 @@ const Navbar = () => {
                   }}
                   component="div"
                   fontSize={14}
+                  fontWeight="bold"
+                  color="primary"
                   sx={{ mx: 1 }}
                 >
                   {page}

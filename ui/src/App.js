@@ -3,33 +3,32 @@ import Home from "./components/Pages/HomePage/Home";
 import Contact from "./components/Pages/ContactPage/Contact";
 import Services from "./components/Pages/ServicesPage/Services";
 import Navbar from "./components/Navbar/Navbar";
-import { Box } from "@mui/material";
+import Footer from "./components/Footer/Footer";
 
 const App = () => {
   const ErrorPage = () => {
-    window.location.href = "/";
+    window.location.href = "/home";
   };
 
   return (
-    <Box
-      sx={{
-        p: { xs: 0.1, sm: 0.5, md: 1, lg: 2 },
-        backgroundColor: "yellow",
+    <div
+      style={{
         display: "flex",
         flexDirection: "column",
-        minHeight: "100vh",
+        backgroundColor: "black",
       }}
     >
       <Router>
         <Navbar />
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/home" element={<Home />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/services" element={<Services />} />
           <Route path="*" element={<ErrorPage />} />
         </Routes>
       </Router>
-    </Box>
+      <Footer />
+    </div>
   );
 };
 
