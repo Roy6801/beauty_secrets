@@ -5,6 +5,7 @@ import Contact from "./components/Pages/ContactPage/Contact";
 import Services from "./components/Pages/ServicesPage/Services";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import Privacy from "./components/Pages/Privacy";
 import "./index.css";
 import "./styles/hero.css";
 import "./styles/intro.css";
@@ -42,6 +43,7 @@ const App = () => {
         <Route path="/home" element={<Home />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/services" element={<Services />} />
+        {/* <Route path="/privacy" element={<Privacy />} /> */}
         <Route path="*" element={<ErrorPage />} />
       </Routes>
       <Footer />
