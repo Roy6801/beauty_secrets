@@ -1,42 +1,34 @@
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  Avatar,
-  Typography,
-  Rating,
-} from "@mui/material";
-import homeStyle from "../../../styles/homeStyle";
-import "../../../index.css";
-
-const { reviewCard } = homeStyle.reviewPanel;
+import { Box, Rating } from "@mui/material";
+import { StarRounded, StarBorderRounded } from "@mui/icons-material";
 
 const ReviewCard = ({ profileURL, userName, userReview, userRating }) => {
   return (
-    <Card sx={reviewCard.card}>
-      <CardHeader
-        sx={{
-          height: 100,
-          m: 1,
-        }}
-        avatar={<Avatar src={profileURL} alt={userName} />}
-        title={<Typography fontWeight="bold">{userName}</Typography>}
-        subheader={
-          <CardContent sx={{ display: "flex", flexDirection: "column" }}>
+    <Box className="review-card">
+      <div className="xcard-header">
+        <div className="xcard-avatar">
+          <img src={profileURL} className="xcard-avatar-img" />
+        </div>
+        <div className="reviewer">
+          <div className="xcard-name">{userName}</div>
+          <div>
             <Rating
               readOnly
               precision={0.1}
               value={Number.parseFloat(userRating)}
+              icon={
+                <StarRounded
+                  style={{ width: "24px", height: "24px", color: "#ffc107" }}
+                />
+              }
+              emptyIcon={
+                <StarBorderRounded style={{ width: "24px", height: "24px" }} />
+              }
             />
-          </CardContent>
-        }
-      />
-      <CardContent sx={{ height: 100, mx: 2 }} className="scrollbar">
-        <Typography variant="body2" textAlign="justify">
-          {userReview}
-        </Typography>
-      </CardContent>
-    </Card>
+          </div>
+        </div>
+      </div>
+      <div className="xcard-body scrollbar">{userReview}</div>
+    </Box>
   );
 };
 

@@ -1,22 +1,33 @@
-import Reviews from "./Reviews";
+import Intro from "./Intro";
 import InstaPosts from "./InstaPosts";
+import Reviews from "./Reviews";
 import cover from "../../../static/beautysecrets.jpg";
-import { Typography, Card, CardMedia, Box } from "@mui/material";
-import homeStyle from "../../../styles/homeStyle";
-import "../../../index.css";
-
-const { homeContainer, titleCard } = homeStyle;
+import { Box } from "@mui/material";
 
 const Home = () => {
   return (
-    <Box sx={homeContainer} >
-      <Card sx={titleCard.container}>
-        <CardMedia component="img" src={cover} sx={titleCard.image} />
-        <div style={titleCard.centered}>
-          <Typography sx={titleCard.title}>Beauty Secrets</Typography>
-          <Typography sx={titleCard.subTitle}>Family Salon</Typography>
-        </div>
-      </Card>
+    <Box className="the-home">
+      <img src={cover} className="cover-img" />
+      <div className="cover">
+        <div className="cover-title">{"Spreading Love"}</div>
+        <div className="cover-sub-title">{"through Hair & Beauty"}</div>
+        <button
+          className="xbtn book-button xraise"
+          onClick={(e) => {
+            if (window.innerWidth < 640) {
+              window.open("https://wa.me/919920395135", "_blank");
+            } else {
+              window.open(
+                "https://www.instagram.com/beautysecrets3110/",
+                "_blank"
+              );
+            }
+          }}
+        >
+          Book Appointment
+        </button>
+      </div>
+      <Intro />
       <InstaPosts />
       <Reviews />
     </Box>

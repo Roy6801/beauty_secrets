@@ -1,13 +1,31 @@
 import { useState, useEffect } from "react";
-import { Box, Typography, Rating } from "@mui/material";
+import { Box, Rating } from "@mui/material";
+import { StarRounded, StarBorderRounded } from "@mui/icons-material";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import homeStyle from "../../../styles/homeStyle";
 import google from "../../../static/google.svg";
+import s3_g from "../../../static/vectors/s3_g.svg";
 import ReviewCard from "./ReviewCard";
 import axios from "axios";
 
-const { reviewPanel } = homeStyle;
+const responsive = {
+  superLargeDesktop: {
+    breakpoint: { max: 4000, min: 3000 },
+    items: 5,
+  },
+  desktop: {
+    breakpoint: { max: 3000, min: 1024 },
+    items: 3,
+  },
+  tablet: {
+    breakpoint: { max: 1024, min: 464 },
+    items: 2,
+  },
+  mobile: {
+    breakpoint: { max: 464, min: 0 },
+    items: 1,
+  },
+};
 
 const Reviews = () => {
   const [reviews, setReviews] = useState();
@@ -49,40 +67,75 @@ const Reviews = () => {
   const { avgRating, userReviews } = reviews;
 
   return (
-    <Box
-      sx={reviewPanel.container}
-    >
-      <Box sx={reviewPanel.title}>
-        <img src={google} width="48px" />
-        <div style={reviewPanel.review}>
-          <Typography sx={reviewPanel.subTitle}>{avgRating}</Typography>
+    <Box className="review-container">
+      {window.innerWidth < 640 ? (
+        <div className="google-logo-frame xraise">
+          <div className="google-logo xraise">
+            <img src={google} className="logo-vec" />
+            <div className="review-design">
+              <img src={s3_g} />
+              <div className="google-reviews">Reviews</div>
+            </div>
+          </div>
+        </div>
+      ) : (
+        <div className="google-logo">
+          <img src={google} className="logo-vec" />
+          <div className="google-reviews">Reviews</div>
+        </div>
+      )}
+      <div className="review-header">
+        <div className="avg-rating">
+          <div className="rating-score">{avgRating}</div>
+
           <Rating
             readOnly
             precision={0.1}
-            sx={reviewPanel.subTitle}
             value={Number.parseFloat(avgRating)}
+            icon={
+              <StarRounded
+                style={{ width: "48px", height: "48px", color: "#ffc107" }}
+              />
+            }
+            emptyIcon={
+              <StarBorderRounded style={{ width: "48px", height: "48px" }} />
+            }
           />
         </div>
-      </Box>
-      <Carousel
-        responsive={reviewPanel.responsive}
-        autoPlay
-        autoPlaySpeed={15000}
-        infinite
-      >
-        {Object.keys(userReviews).map((key, index) => {
-          const [name, rating, review] = userReviews[key];
-          return (
-            <ReviewCard
-              key={index}
-              profileURL={key}
-              userName={name}
-              userRating={rating}
-              userReview={review}
-            />
-          );
-        })}
-      </Carousel>
+        {window.innerWidth < 640 ? null : (
+          <button className="xbtn xraise review-button">Leave a Review</button>
+        )}
+      </div>
+
+      <div className="multi-carousel">
+        <Carousel
+          responsive={responsive}
+          autoPlay
+          autoPlaySpeed={5000}
+          infinite
+          arrows={false}
+        >
+          {Object.keys(userReviews).map((key, index) => {
+            const [name, rating, review] = userReviews[key];
+
+            return (
+              <ReviewCard
+                key={index}
+                profileURL={key}
+                userName={name}
+                userRating={rating}
+                userReview={review}
+              />
+            );
+          })}
+        </Carousel>
+      </div>
+
+      <div className="review-btn-div" >
+        {window.innerWidth < 640 ? (
+          <button className="xbtn xraise review-button">Leave a Review</button>
+        ) : null}
+      </div>
     </Box>
   );
 };
