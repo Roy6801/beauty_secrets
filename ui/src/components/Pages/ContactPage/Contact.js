@@ -1,10 +1,11 @@
+import { Box } from "@mui/material";
 import Map from "./Map";
 
 const Contact = () => {
   return (
-    <div>
+    <Box>
       <Map />
-    </div>
+    </Box>
   );
 };
 

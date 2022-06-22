@@ -1,32 +1,35 @@
-import Reviews from "./Reviews";
+import Intro from "./Intro";
 import InstaPosts from "./InstaPosts";
+import Reviews from "./Reviews";
 import cover from "../../../static/beautysecrets.jpg";
-import { Container, Card, CardMedia, Box } from "@mui/material";
+import { Box } from "@mui/material";
 
 const Home = () => {
   return (
-    <Box
-      sx={{
-        my: { xs: 7.5, sm: 8 },
-        p: { xs: 1, sm: 2, md: 3, lg: 4 },
-        backgroundColor: "black",
-      }}
-    >
-      <Card>
-        <CardMedia
-          component="img"
-          src={cover}
-          sx={{
-            objectFit: "cover",
-            maxHeight: { xs: 220, md: 380, lg: 512 },
-            minHeight: { sm: 420 },
+    <Box className="the-home">
+      <img src={cover} className="cover-img" />
+      <div className="cover">
+        <div className="cover-title">{"Spreading Love"}</div>
+        <div className="cover-sub-title">{"through Hair & Beauty"}</div>
+        <button
+          className="xbtn book-button xraise"
+          onClick={(e) => {
+            if (window.innerWidth < 640) {
+              window.open("https://wa.me/919920395135", "_blank");
+            } else {
+              window.open(
+                "https://www.instagram.com/beautysecrets3110/",
+                "_blank"
+              );
+            }
           }}
-        />
-      </Card>
-      <Container>
-        <InstaPosts />
-        <Reviews />
-      </Container>
+        >
+          Book Appointment
+        </button>
+      </div>
+      <Intro />
+      <InstaPosts />
+      <Reviews />
     </Box>
   );
 };

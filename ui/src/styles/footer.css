@@ -1,0 +1,243 @@
+@media only screen and (min-width: 960px) and (max-width: 2000px) {
+  .footer-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 600px;
+  }
+
+  .footer-social1 {
+    width: 100%;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #256186;
+  }
+
+  .footer-social2 {
+    width: 100%;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f5f5f5;
+  }
+
+  .social-icons {
+    width: 25%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .sub-social {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+
+  .business-footer {
+    width: 100%;
+    display: flex;
+    flex-grow: 1;
+    background-color: #256186;
+    padding: 1%;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .business-name {
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    color: white;
+  }
+
+  .footer-vec1 {
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    left: 5px;
+  }
+
+  .footer-vec2 {
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    left: 5px;
+  }
+
+  .footer-vec3 {
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    right: 5px;
+  }
+}
+
+@media only screen and (min-width: 640px) and (max-width: 960px) {
+  .footer-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 600px;
+  }
+
+  .footer-social1 {
+    width: 100%;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #256186;
+  }
+
+  .footer-social2 {
+    width: 100%;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f5f5f5;
+  }
+
+  .social-icons {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .sub-social {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+
+  .business-footer {
+    width: 100%;
+    display: flex;
+    flex-grow: 1;
+    background-color: #256186;
+    padding: 1%;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .business-name {
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    color: white;
+  }
+
+  .footer-vec1 {
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    left: 5px;
+  }
+
+  .footer-vec2 {
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    left: 5px;
+  }
+
+  .footer-vec3 {
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    right: 5px;
+  }
+}
+
+@media only screen and (min-width: 320px) and (max-width: 640px) {
+  .footer-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 300px;
+  }
+
+  .footer-social1 {
+    width: 100%;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #256186;
+  }
+
+  .footer-social2 {
+    width: 100%;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f5f5f5;
+  }
+
+  .social-icons {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .sub-social {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+
+  .business-footer {
+    width: 100%;
+    display: flex;
+    flex-grow: 1;
+    background-color: #256186;
+    padding: 1%;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .business-name {
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    color: white;
+  }
+
+  .footer-vec1 {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    left: 2px;
+  }
+
+  .footer-vec2 {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    left: 2px;
+  }
+
+  .footer-vec3 {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    right: 2px;
+  }
+}
+
+@media only screen and (max-width: 320px) {
+}

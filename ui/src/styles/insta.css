@@ -1,0 +1,265 @@
+@media only screen and (min-width: 960px) and (max-width: 2000px) {
+  .insta-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 2000px;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .insta-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 70%;
+  }
+
+  .insta-profile {
+    width: 400px;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url("../static/vectors/c_rb.svg");
+    background-size: cover;
+  }
+
+  .insta-profile-img {
+    width: 150px;
+    border-radius: 75px;
+    object-fit: cover;
+    border: 2px solid #619fc6;
+  }
+
+  .insta-handle {
+    display: flex;
+    flex-direction: column;
+    height: 200px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .handle-name {
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: 900;
+    font-size: 36px;
+    color: #256186;
+    margin: 20px;
+  }
+
+  .gallery {
+    width: 80%;
+    height: 1200px;
+    margin: 10px 0px 10px 0px;
+    padding: 1%;
+  }
+
+  .gallery-item {
+    padding: 2%;
+    background-color: white;
+  }
+
+  .insta-vec {
+    width: 100%;
+    height: 420px;
+  }
+
+  .vec3 {
+    position: absolute;
+    left: 200px;
+    width: 250px;
+  }
+
+  .vec4 {
+    position: absolute;
+    right: 5px;
+    width: 220px;
+  }
+
+  .follow-button {
+    width: 260px;
+    margin: 20px;
+  }
+}
+
+@media only screen and (min-width: 640px) and (max-width: 960px) {
+  .insta-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .insta-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+  }
+
+  .insta-profile {
+    width: 400px;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url("../static/vectors/c_rb.svg");
+    background-size: cover;
+  }
+
+  .insta-profile-img {
+    width: 150px;
+    border-radius: 75px;
+    object-fit: cover;
+    border: 2px solid #619fc6;
+  }
+
+  .insta-handle {
+    display: flex;
+    flex-direction: column;
+    height: 200px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .handle-name {
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: 900;
+    font-size: 36px;
+    color: #256186;
+    margin: 20px;
+  }
+
+  .gallery {
+    width: 90%;
+    height: 900px;
+    margin: 80px 0px 80px 0px;
+    padding: 1%;
+  }
+
+  .gallery-item {
+    padding: 2%;
+    background-color: white;
+  }
+
+  .insta-vec {
+    width: 100%;
+    height: 420px;
+  }
+
+  .vec3 {
+    position: absolute;
+    left: 200px;
+    width: 250px;
+  }
+
+  .vec4 {
+    position: absolute;
+    right: 5px;
+    width: 220px;
+  }
+
+  .follow-button {
+    width: 260px;
+    margin: 20px;
+  }
+}
+
+@media only screen and (min-width: 320px) and (max-width: 640px) {
+  .insta-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .insta-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+  }
+
+  .insta-profile {
+    width: 400px;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url("../static/vectors/c_rb.svg");
+    background-size: cover;
+    background-position: center;
+    margin-top: 50px;
+  }
+
+  .insta-profile-img {
+    width: 150px;
+    border-radius: 75px;
+    object-fit: cover;
+    border: 2px solid #619fc6;
+  }
+
+  .insta-handle {
+    display: flex;
+    flex-direction: column;
+    height: 200px;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .handle-name {
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: 900;
+    font-size: 36px;
+    color: #256186;
+    margin: 20px;
+  }
+
+  .gallery {
+    width: 95%;
+    height: 600px;
+    margin: 100px 0px 50px 0px;
+    padding: 1%;
+    border: #619fc6 5px solid;
+  }
+
+  .gallery-item {
+    padding: 2%;
+    background-color: white;
+  }
+
+  .insta-vec {
+    width: 100%;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .vec3 {
+    width: 300px;
+  }
+
+  .vec4 {
+    position: absolute;
+    right: 5px;
+    width: 220px;
+  }
+
+  .follow-button {
+    width: 80%;
+    margin: 20px;
+  }
+}
+
+@media only screen and (max-width: 320px) {
+}

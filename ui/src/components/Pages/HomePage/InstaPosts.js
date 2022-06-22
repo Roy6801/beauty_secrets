@@ -1,18 +1,48 @@
 import { useState, useEffect } from "react";
-import axios from "axios";
-import { ImageList, ImageListItem } from "@mui/material";
+import { Box, ImageList, ImageListItem } from "@mui/material";
 import { Carousel } from "react-bootstrap";
+import axios from "axios";
+import c_lb from "../../../static/vectors/c_lb.svg";
+import s2_g from "../../../static/vectors/s2_g.svg";
+
+const breakpoints = {
+  xs: 0,
+  sm: 600,
+  md: 960,
+  lg: 1280,
+  xl: 1920,
+};
+
+const getColumns = (width) => {
+  if (width < breakpoints.sm) {
+    return 2;
+  } else if (width < breakpoints.md) {
+    return 3;
+  } else if (width < breakpoints.xl) {
+    return 3;
+  }
+};
 
 const InstaPosts = () => {
-  const { REACT_APP_INSTA_TOKEN } = process.env;
+  const { REACT_APP_INSTA_TOKEN, REACT_APP_PAGE_TOKEN } = process.env;
 
   const [posts, setPosts] = useState();
 
+  const [DP, setDP] = useState();
+
   const [limit, setLimit] = useState(20);
+
+  const [columns, setColumns] = useState(getColumns(window.innerWidth));
+
+  const updateDimensions = () => {
+    setColumns(getColumns(window.innerWidth));
+  };
 
   const storageKey = "beautysecrets3110posts";
 
   const postAPI = `https://graph.instagram.com/me/media?fields=id,media_type,media_url&limit=${limit}&access_token=${REACT_APP_INSTA_TOKEN}`;
+
+  const profilePicAPI = `https://graph.facebook.com/v14.0/17841407401671304?fields=profile_picture_url&access_token=${REACT_APP_PAGE_TOKEN}`;
 
   const childMedia = async (res) => {
     let postData = res.data.data;
@@ -35,11 +65,19 @@ const InstaPosts = () => {
         media_arr.push([postData[key]["media_url"]]);
       }
     }
+
+    const user_dp = (await axios.get(profilePicAPI)).data.profile_picture_url;
+
     window.localStorage.setItem(
       storageKey,
-      JSON.stringify([media_arr, Math.round(new Date().getTime() / 1000)])
+      JSON.stringify([
+        media_arr,
+        Math.round(new Date().getTime() / 1000),
+        user_dp,
+      ])
     );
     setPosts(media_arr);
+    setDP(user_dp);
   };
 
   const APICall = () => {
@@ -47,16 +85,23 @@ const InstaPosts = () => {
   };
 
   useEffect(() => {
+    window.addEventListener("resize", updateDimensions);
+    return () => window.removeEventListener("resize", updateDimensions);
+  }, []);
+
+  useEffect(() => {
     let item = window.localStorage.getItem(storageKey);
     if (item) {
       let post_time = JSON.parse(item);
       let _posts = post_time[0];
       let _time = post_time[1];
+      let _userDP = post_time[2];
       if (Math.round(new Date().getTime() / 1000) - _time > 10800) {
         window.localStorage.removeItem(storageKey);
         APICall();
       } else {
         setPosts(_posts);
+        setDP(_userDP);
       }
     } else {
       APICall();
@@ -66,25 +111,52 @@ const InstaPosts = () => {
   if (!posts) return null;
 
   return (
-    <ImageList
-      variant="masonry"
-      cols={4}
-      sx={{ backgroundColor: "red", m: 2, p: 2 }}
-    >
-      {posts.map((post, index) => (
-        <ImageListItem key={index}>
-          <Carousel>
-            {post.map((media) => {
-              return (
-                <Carousel.Item key={media}>
-                  <img src={media} style={{ width: "100%" }} />
-                </Carousel.Item>
-              );
-            })}
-          </Carousel>
-        </ImageListItem>
-      ))}
-    </ImageList>
+    <Box className="insta-container">
+      <div className="insta-header">
+        <div className="insta-profile">
+          <img src={DP} className="insta-profile-img" />
+        </div>
+        <div className="insta-handle">
+          <div className="handle-name">beautysecrets3110</div>
+          <button
+            className="xbtn xraise follow-button"
+            onClick={(e) =>
+              window.open(
+                "https://www.instagram.com/beautysecrets3110/",
+                "_blank"
+              )
+            }
+          >
+            Follow Us
+          </button>
+        </div>
+      </div>
+      <div className="gallery scrollbar">
+        <ImageList
+          variant="masonry"
+          cols={columns}
+          gap={columns === 3 ? 10 : 5}
+        >
+          {posts.map((post, index) => (
+            <ImageListItem key={index} className="gallery-item xraise">
+              <Carousel indicators={false} controls={false}>
+                {post.map((media) => {
+                  return (
+                    <Carousel.Item key={media}>
+                      <img src={media} style={{ width: "100%" }} />
+                    </Carousel.Item>
+                  );
+                })}
+              </Carousel>
+            </ImageListItem>
+          ))}
+        </ImageList>
+      </div>
+      <div className="insta-vec">
+        <img src={c_lb} className="vec3" />
+        {window.innerWidth < 640 ? null : <img src={s2_g} className="vec4" />}
+      </div>
+    </Box>
   );
 };
 

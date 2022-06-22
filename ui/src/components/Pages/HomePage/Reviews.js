@@ -1,26 +1,29 @@
 import { useState, useEffect } from "react";
-import axios from "axios";
-import ReviewCard from "./ReviewCard";
-import { Box, Typography, Rating, Icon } from "@mui/material";
-import { Google } from "@mui/icons-material";
+import { Box, Rating } from "@mui/material";
+import { StarRounded, StarBorderRounded } from "@mui/icons-material";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
+import google from "../../../static/google.svg";
+import s3_g from "../../../static/vectors/s3_g.svg";
+import ReviewCard from "./ReviewCard";
+import axios from "axios";
 
 const responsive = {
+  superLargeDesktop: {
+    breakpoint: { max: 4000, min: 3000 },
+    items: 5,
+  },
   desktop: {
     breakpoint: { max: 3000, min: 1024 },
     items: 3,
-    slidesToSlide: 3, // optional, default to 1.
   },
   tablet: {
     breakpoint: { max: 1024, min: 464 },
     items: 2,
-    slidesToSlide: 2, // optional, default to 1.
   },
   mobile: {
     breakpoint: { max: 464, min: 0 },
     items: 1,
-    slidesToSlide: 1, // optional, default to 1.
   },
 };
 
@@ -29,7 +32,7 @@ const Reviews = () => {
   const { REACT_APP_REVIEW_API, REACT_APP_API_KEY } = process.env;
   const storageKey = "beautysecrets3110reviews";
 
-  const API_ENDPOINT = `${REACT_APP_REVIEW_API}/${REACT_APP_API_KEY}`
+  const API_ENDPOINT = `${REACT_APP_REVIEW_API}/${REACT_APP_API_KEY}`;
 
   const APICall = () => {
     axios.get(API_ENDPOINT).then((res) => {
@@ -64,59 +67,75 @@ const Reviews = () => {
   const { avgRating, userReviews } = reviews;
 
   return (
-    <Box
-      sx={{
-        display: "flex",
-        flexDirection: "column",
-        m: { md: 5 },
-        p: { md: 5 },
-        backgroundColor: "aqua",
-      }}
-    >
-      <Box
-        sx={{
-          display: "flex",
-          backgroundColor: "red",
-          justifyContent: "space-around",
-          alignItems: "center",
-        }}
-      >
-        <div style={{ display: "flex", alignItems: "center" }}>
-          <Icon>
-            <Google />
-          </Icon>
-          <Typography sx={{ backgroundColor: "white", m: 5 }}>
-            Google Ratings
-          </Typography>
+    <Box className="review-container">
+      {window.innerWidth < 640 ? (
+        <div className="google-logo-frame xraise">
+          <div className="google-logo xraise">
+            <img src={google} className="logo-vec" />
+            <div className="review-design">
+              <img src={s3_g} />
+              <div className="google-reviews">Reviews</div>
+            </div>
+          </div>
         </div>
-        <Typography sx={{ backgroundColor: "white", m: 5 }}>
-          What our customers say...
-        </Typography>
-        <div style={{ display: "flex", alignItems: "center" }}>
-          <Typography sx={{ backgroundColor: "white", m: 5 }}>
-            {avgRating}
-          </Typography>
+      ) : (
+        <div className="google-logo">
+          <img src={google} className="logo-vec" />
+          <div className="google-reviews">Reviews</div>
+        </div>
+      )}
+      <div className="review-header">
+        <div className="avg-rating">
+          <div className="rating-score">{avgRating}</div>
+
           <Rating
             readOnly
             precision={0.1}
             value={Number.parseFloat(avgRating)}
+            icon={
+              <StarRounded
+                style={{ width: "48px", height: "48px", color: "#ffc107" }}
+              />
+            }
+            emptyIcon={
+              <StarBorderRounded style={{ width: "48px", height: "48px" }} />
+            }
           />
         </div>
-      </Box>
-      <Carousel responsive={responsive} autoPlay autoPlaySpeed={15000} infinite>
-        {Object.keys(userReviews).map((key, index) => {
-          const [name, rating, review] = userReviews[key];
-          return (
-            <ReviewCard
-              key={index}
-              profileURL={key}
-              userName={name}
-              userRating={rating}
-              userReview={review}
-            />
-          );
-        })}
-      </Carousel>
+        {window.innerWidth < 640 ? null : (
+          <button className="xbtn xraise review-button">Leave a Review</button>
+        )}
+      </div>
+
+      <div className="multi-carousel">
+        <Carousel
+          responsive={responsive}
+          autoPlay
+          autoPlaySpeed={5000}
+          infinite
+          arrows={false}
+        >
+          {Object.keys(userReviews).map((key, index) => {
+            const [name, rating, review] = userReviews[key];
+
+            return (
+              <ReviewCard
+                key={index}
+                profileURL={key}
+                userName={name}
+                userRating={rating}
+                userReview={review}
+              />
+            );
+          })}
+        </Carousel>
+      </div>
+
+      <div className="review-btn-div" >
+        {window.innerWidth < 640 ? (
+          <button className="xbtn xraise review-button">Leave a Review</button>
+        ) : null}
+      </div>
     </Box>
   );
 };
