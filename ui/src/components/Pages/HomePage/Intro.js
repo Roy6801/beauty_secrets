@@ -39,7 +39,7 @@ const Intro = () => {
         <div className="display-frame1 xraise">
           <div className="display-frame2 xraise">
             <img
-              src="https://i.ytimg.com/vi/fDNc8G3RAbQ/maxresdefault.jpg"
+              src="https://scontent.fbom2-1.fna.fbcdn.net/v/t39.30808-6/267965896_4498375316920692_7976715214512595439_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=XkB5zdfiqS4AX9C-nA5&_nc_ht=scontent.fbom2-1.fna&oh=00_AT_pLwSMPlkGyHRftTaK0Mi0RUtceSUehBh-LjCqDJCl5g&oe=62B819E9"
               className="display-img"
             />
           </div>

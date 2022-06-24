@@ -21,7 +21,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-image: url("../static/vectors/c_rb.svg");
+    background-image: url("../../static/vectors/c_rb.svg");
     background-size: cover;
   }
 
@@ -107,7 +107,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-image: url("../static/vectors/c_rb.svg");
+    background-image: url("../../static/vectors/c_rb.svg");
     background-size: cover;
   }
 
@@ -193,7 +193,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-image: url("../static/vectors/c_rb.svg");
+    background-image: url("../../static/vectors/c_rb.svg");
     background-size: cover;
     background-position: center;
     margin-top: 50px;

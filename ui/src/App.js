@@ -5,13 +5,18 @@ import Contact from "./components/Pages/ContactPage/Contact";
 import Services from "./components/Pages/ServicesPage/Services";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+
 import "./index.css";
-import "./styles/hero.css";
-import "./styles/intro.css";
-import "./styles/insta.css";
-import "./styles/review.css";
-import "./styles/reviewcard.css";
+import "./styles/navbar.css";
 import "./styles/footer.css";
+import "./styles/home/hero.css";
+import "./styles/home/intro.css";
+import "./styles/home/insta.css";
+import "./styles/home/review.css";
+import "./styles/home/reviewcard.css";
+import "./styles/contact/hero3.css";
+import "./styles/contact/reach.css";
+import "./styles/contact/timing.css";
 
 const App = () => {
   const ErrorPage = () => {

@@ -2,7 +2,6 @@ import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { Box } from "@mui/material";
 import logo from "../static/logo.svg";
-import "../styles/navbar.css";
 
 const Navbar = () => {
   const pages = ["Home", "Services", "Contact"];
@@ -29,7 +28,7 @@ const Navbar = () => {
           onClick={(e) => setOpenMenu(!openMenu)}
         >
           {openMenu ? (
-            <div className="menu-list">
+            <div className="menu-list xraise">
               {pages.map((page) => {
                 return (
                   <NavLink
