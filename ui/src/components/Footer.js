@@ -16,9 +16,10 @@ const Footer = () => {
         <img src={q1_db} className="footer-vec1" />
         {window.innerWidth < 640 ? (
           <div className="sub-social">
-            <img src={google2} />
+            <img src={google2} className="footer-icon-img xraise" />
             <img
               src={insta2}
+              className="footer-icon-img xraise"
               onClick={(e) =>
                 window.open(
                   "https://www.instagram.com/beautysecrets3110/",
@@ -34,9 +35,10 @@ const Footer = () => {
         <div className="social-icons">
           {window.innerWidth < 640 ? null : (
             <div className="sub-social">
-              <img src={google1} />
+              <img src={google1} className="footer-icon-img xraise" />
               <img
                 src={insta1}
+                className="footer-icon-img xraise"
                 onClick={(e) =>
                   window.open(
                     "https://www.instagram.com/beautysecrets3110/",
@@ -49,6 +51,7 @@ const Footer = () => {
           <div className="sub-social">
             <img
               src={facebook1}
+              className="footer-icon-img xraise"
               onClick={(e) =>
                 window.open(
                   "https://www.facebook.com/beautysecrets3110/",
@@ -58,6 +61,7 @@ const Footer = () => {
             />
             <img
               src={whatsapp1}
+              className="footer-icon-img xraise"
               onClick={(e) =>
                 window.open("https://wa.me/919920395135/", "_blank")
               }
