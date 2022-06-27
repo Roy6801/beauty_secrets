@@ -7,7 +7,6 @@
     top: 0;
     left: 0;
     right: 0;
-    overflow-x: hidden;
   }
 
   .box-color {
@@ -126,7 +125,6 @@
     top: 0;
     left: 0;
     right: 0;
-    overflow-x: hidden;
   }
 
   .box-color {
@@ -248,7 +246,6 @@
     left: 0;
     right: 0;
     background-color: white;
-    overflow-x: hidden;
   }
 
   .base-card {
