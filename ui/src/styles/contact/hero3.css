@@ -244,10 +244,12 @@
 
   .call-logo {
     margin: 20px 0px 20px 0px;
+    width: 30px;
   }
 
   .mail-logo {
     margin: 5px 0px 5px 0px;
+    width: 30px;
   }
 
   .contact-number {
@@ -261,7 +263,7 @@
     font-family: "Roboto";
     font-style: normal;
     font-weight: 700;
-    font-size: 32px;
+    font-size: 24px;
     color: white;
   }
 
@@ -272,7 +274,7 @@
     font-family: "Roboto";
     font-style: normal;
     font-weight: 700;
-    font-size: 28px;
+    font-size: 24px;
     color: white;
     word-wrap: break-word;
   }

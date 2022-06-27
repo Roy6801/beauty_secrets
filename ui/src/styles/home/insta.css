@@ -13,6 +13,7 @@
     align-items: center;
     justify-content: space-around;
     width: 70%;
+    margin-bottom: 10%;
   }
 
   .insta-profile {
@@ -35,9 +36,12 @@
   .insta-handle {
     display: flex;
     flex-direction: column;
-    height: 200px;
     align-items: center;
     justify-content: center;
+  }
+
+  .insta-logo {
+    width: 30%;
   }
 
   .handle-name {
@@ -121,9 +125,13 @@
   .insta-handle {
     display: flex;
     flex-direction: column;
-    height: 200px;
     align-items: center;
     justify-content: center;
+    margin: 5% 0 5% 0;
+  }
+
+  .insta-logo {
+    width: 30%;
   }
 
   .handle-name {
@@ -188,20 +196,20 @@
   }
 
   .insta-profile {
-    width: 400px;
-    height: 400px;
+    width: 70vw;
+    height: 70vw;
     display: flex;
     align-items: center;
     justify-content: center;
     background-image: url("../../static/vectors/c_rb.svg");
-    background-size: cover;
+    background-size: contain;
     background-position: center;
     margin-top: 50px;
   }
 
   .insta-profile-img {
-    width: 150px;
-    border-radius: 75px;
+    width: 50%;
+    border-radius: 50%;
     object-fit: cover;
     border: 2px solid #619fc6;
   }
@@ -209,10 +217,14 @@
   .insta-handle {
     display: flex;
     flex-direction: column;
-    height: 200px;
     align-items: center;
     justify-content: center;
     width: 100%;
+    margin: 5% 0 5% 0;
+  }
+
+  .insta-logo {
+    width: 20%;
   }
 
   .handle-name {

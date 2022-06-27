@@ -11,8 +11,10 @@ const Intro = () => {
           <div className="title">Our Passion</div>
           <div className="content-frame xraise">
             <div className="sub-title xraise">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Elementum, commodo, quam elementum massa aliquam nulla.
+              Hair is our passion, and our passion shows on every client that
+              walks out of our doors. Through ongoing education, our stylists
+              stay up to date on the latest cut and color styles and techniques
+              to bring you the looks you want.
             </div>
           </div>
         </div>
@@ -22,8 +24,10 @@ const Intro = () => {
         <div className="content">
           <div className="title">Our Passion</div>
           <div className="sub-title">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elementum,
-            commodo, quam elementum massa aliquam nulla.
+            Hair is our passion, and our passion shows on every client that
+            walks out of our doors. Through ongoing education, our stylists stay
+            up to date on the latest cut and color styles and techniques to
+            bring you the looks you want.
           </div>
         </div>
       );
