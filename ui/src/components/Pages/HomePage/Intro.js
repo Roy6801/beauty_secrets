@@ -11,8 +11,10 @@ const Intro = () => {
           <div className="title">Our Passion</div>
           <div className="content-frame xraise">
             <div className="sub-title xraise">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Elementum, commodo, quam elementum massa aliquam nulla.
+              Hair is our passion, and our passion shows on every client that
+              walks out of our doors. Through ongoing education, our stylists
+              stay up to date on the latest cut and color styles and techniques
+              to bring you the looks you want.
             </div>
           </div>
         </div>
@@ -22,8 +24,10 @@ const Intro = () => {
         <div className="content">
           <div className="title">Our Passion</div>
           <div className="sub-title">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elementum,
-            commodo, quam elementum massa aliquam nulla.
+            Hair is our passion, and our passion shows on every client that
+            walks out of our doors. Through ongoing education, our stylists stay
+            up to date on the latest cut and color styles and techniques to
+            bring you the looks you want.
           </div>
         </div>
       );
@@ -39,7 +43,7 @@ const Intro = () => {
         <div className="display-frame1 xraise">
           <div className="display-frame2 xraise">
             <img
-              src="https://scontent.fbom2-1.fna.fbcdn.net/v/t39.30808-6/267965896_4498375316920692_7976715214512595439_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=XkB5zdfiqS4AX9C-nA5&_nc_ht=scontent.fbom2-1.fna&oh=00_AT_pLwSMPlkGyHRftTaK0Mi0RUtceSUehBh-LjCqDJCl5g&oe=62B819E9"
+              src="https://scontent.fbom2-1.fna.fbcdn.net/v/t39.30808-6/267965896_4498375316920692_7976715214512595439_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=aoNGJqo4eQoAX_nNjI5&_nc_ht=scontent.fbom2-1.fna&oh=00_AT_xKxjDud_HF9AXzvGvOQRKFDJO_ZQMjGnSBgc5z1Ba3A&oe=62BE08A9"
               className="display-img"
             />
           </div>

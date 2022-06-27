@@ -4,6 +4,7 @@ import { Carousel } from "react-bootstrap";
 import axios from "axios";
 import c_lb from "../../../static/vectors/c_lb.svg";
 import s2_g from "../../../static/vectors/s2_g.svg";
+import insta from "../../../static/insta.svg";
 
 const breakpoints = {
   xs: 0,
@@ -117,6 +118,7 @@ const InstaPosts = () => {
           <img src={DP} className="insta-profile-img" />
         </div>
         <div className="insta-handle">
+          <img src={insta} className="insta-logo" />
           <div className="handle-name">beautysecrets3110</div>
           <button
             className="xbtn xraise follow-button"
@@ -152,10 +154,12 @@ const InstaPosts = () => {
           ))}
         </ImageList>
       </div>
-      <div className="insta-vec">
-        <img src={c_lb} className="vec3" />
-        {window.innerWidth < 640 ? null : <img src={s2_g} className="vec4" />}
-      </div>
+      {window.innerWidth < 640 ? null : (
+        <div className="insta-vec">
+          <img src={c_lb} className="vec3" />
+          <img src={s2_g} className="vec4" />
+        </div>
+      )}
     </Box>
   );
 };

@@ -36,6 +36,10 @@ const Reviews = () => {
 
   const APICall = () => {
     axios.get(API_ENDPOINT).then((res) => {
+      if (Object.keys(res.data.userReviews).length === 0) {
+        APICall();
+      }
+
       window.localStorage.setItem(
         storageKey,
         JSON.stringify([res.data, Math.round(new Date().getTime() / 1000)])
@@ -131,7 +135,7 @@ const Reviews = () => {
         </Carousel>
       </div>
 
-      <div className="review-btn-div" >
+      <div className="review-btn-div">
         {window.innerWidth < 640 ? (
           <button className="xbtn xraise review-button">Leave a Review</button>
         ) : null}

@@ -1,16 +1,26 @@
-import { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { NavLink, useLocation } from "react-router-dom";
 import { Box } from "@mui/material";
 import logo from "../static/logo.svg";
 
 const Navbar = () => {
-  const pages = ["Home", "Services", "Contact"];
+  const location = useLocation();
 
-  const [activePage, setPage] = useState("Home");
+  const pages = {
+    "/home": "Home",
+    "/services": "Services",
+    "/contact": "Contact",
+  };
+
+  const [activePage, setPage] = useState();
 
   const [navChange, setNavChange] = useState(false);
 
   const [openMenu, setOpenMenu] = useState(false);
+
+  useEffect(() => {
+    setPage(pages[location.pathname]);
+  }, [location]);
 
   window.addEventListener("scroll", () => {
     if (window.scrollY >= 500) {
@@ -29,7 +39,7 @@ const Navbar = () => {
         >
           {openMenu ? (
             <div className="menu-list xraise">
-              {pages.map((page) => {
+              {Object.values(pages).map((page) => {
                 return (
                   <NavLink
                     key={page}
@@ -50,7 +60,7 @@ const Navbar = () => {
     } else {
       return (
         <div className="menu">
-          {pages.map((page) => {
+          {Object.values(pages).map((page) => {
             return (
               <NavLink
                 key={page}
