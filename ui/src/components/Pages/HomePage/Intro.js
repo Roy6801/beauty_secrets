@@ -1,4 +1,5 @@
 import { Box } from "@mui/material";
+import profile from "../../../static/profile.jpg";
 import q4_rb from "../../../static/vectors/q4_rb.svg";
 import s2_db from "../../../static/vectors/s2_db.svg";
 import s3_rb from "../../../static/vectors/s3_rb.svg";
@@ -43,7 +44,7 @@ const Intro = () => {
         <div className="display-frame1 xraise">
           <div className="display-frame2 xraise">
             <img
-              src="https://scontent.fbom2-1.fna.fbcdn.net/v/t39.30808-6/267965896_4498375316920692_7976715214512595439_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=aoNGJqo4eQoAX_nNjI5&_nc_ht=scontent.fbom2-1.fna&oh=00_AT_xKxjDud_HF9AXzvGvOQRKFDJO_ZQMjGnSBgc5z1Ba3A&oe=62BE08A9"
+              src={profile}
               className="display-img"
             />
           </div>

@@ -16,7 +16,13 @@ const Footer = () => {
         <img src={q1_db} className="footer-vec1" />
         {window.innerWidth < 640 ? (
           <div className="sub-social">
-            <img src={google2} className="footer-icon-img xraise" />
+            <img
+              src={google2}
+              className="footer-icon-img xraise"
+              onClick={(e) =>
+                window.open("https://g.page/r/CaEtreKxeeVlEAg/review", "_blank")
+              }
+            />
             <img
               src={insta2}
               className="footer-icon-img xraise"
@@ -35,7 +41,16 @@ const Footer = () => {
         <div className="social-icons">
           {window.innerWidth < 640 ? null : (
             <div className="sub-social">
-              <img src={google1} className="footer-icon-img xraise" />
+              <img
+                src={google1}
+                className="footer-icon-img xraise"
+                onClick={(e) =>
+                  window.open(
+                    "https://g.page/r/CaEtreKxeeVlEAg/review",
+                    "_blank"
+                  )
+                }
+              />
               <img
                 src={insta1}
                 className="footer-icon-img xraise"

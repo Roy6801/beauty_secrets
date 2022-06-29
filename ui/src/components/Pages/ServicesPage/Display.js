@@ -14,7 +14,12 @@ const Display = () => {
   return (
     <Box className="display-container">
       {window.innerWidth < 640 ? (
-        <Carousel className="carousel-style" controls={false}>
+        <Carousel
+          className="carousel-style"
+          interval={5000}
+          pause={false}
+          controls={false}
+        >
           {Object.keys(items).map((caption, index) => {
             return (
               <Carousel.Item key={index}>
@@ -31,10 +36,15 @@ const Display = () => {
           })}
         </Carousel>
       ) : (
-        <Carousel className="carousel-style" pause={false} controls={false}>
+        <Carousel
+          className="carousel-style"
+          interval={5000}
+          pause={false}
+          controls={false}
+        >
           {Object.keys(items).map((caption, index) => {
             return (
-              <Carousel.Item interval={5000} key={index}>
+              <Carousel.Item key={index}>
                 <div className="display-item">
                   <div className="display-caption">{caption}</div>
                   <div className="display-img-frame xraise">
