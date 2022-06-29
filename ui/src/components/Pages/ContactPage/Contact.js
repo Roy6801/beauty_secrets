@@ -54,7 +54,16 @@ const Contact = () => {
             </div>
 
             <div className="contact-social-icons">
-              <img src={google1} className="contact-icon-img xraise" />
+              <img
+                src={google1}
+                className="contact-icon-img xraise"
+                onClick={(e) =>
+                  window.open(
+                    "https://g.page/r/CaEtreKxeeVlEAg/review",
+                    "_blank"
+                  )
+                }
+              />
               <img
                 src={insta1}
                 className="contact-icon-img xraise"
