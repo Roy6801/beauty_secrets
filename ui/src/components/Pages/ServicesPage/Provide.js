@@ -22,6 +22,7 @@ const Provide = () => {
       <div className="provide-list1">
         <ul>
           <li>Manicure & Pedicure</li>
+          <li>Nail Art</li>
           <li>Facial Treatments</li>
           <li>Skin Care Treatments </li>
         </ul>
