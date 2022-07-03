@@ -137,7 +137,14 @@ const Reviews = () => {
 
       <div className="review-btn-div">
         {window.innerWidth < 640 ? (
-          <button className="xbtn xraise review-button">Leave a Review</button>
+          <button
+            className="xbtn xraise review-button"
+            onClick={(e) =>
+              window.open("https://g.page/r/CaEtreKxeeVlEAg/review", "_blank")
+            }
+          >
+            Leave a Review
+          </button>
         ) : null}
       </div>
     </Box>
